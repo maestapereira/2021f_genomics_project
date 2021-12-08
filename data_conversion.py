@@ -11,10 +11,9 @@ url_data = 'https://github.com/alura-cursos/imersaodados3/blob/main/dados/dados_
 df_raw = pd.read_csv(url_data, compression = 'zip')
 
 # create df and traslate data columns
-df_english = df_english.rename(columns={'tratamento':'drug', 'tempo':'time', 'dose':'dosage', 'droga':'drug'})
-# make drug column into boolean
-df_english.drug[df_english.drug=='com_droga'] = True
-df_english.drug[df_english.drug!='com_droga'] = False
+df_english = df_raw.rename(columns={'tratamento':'with_drug', 'tempo':'time', 'dose':'dosage', 'droga':'drug'})
+# make drug column into boolean, True is for drug, False if for control
+df_english.with_drug = df_english.with_drug=='com_droga'
 
 # cd where df will be saved
 os.chdir('genomics_project\\genomics_project')
