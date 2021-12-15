@@ -137,7 +137,7 @@ def get_n_moa_per_row(df_feature, df_labels, n_moa_per_row=1):
   n_moa = get_n_moa(df_labels)
   n_moa_idx = np.where(n_moa!=n_moa_per_row)[0]
   n_moa_feature = df_feature.drop(index=n_moa_idx).reset_index(drop=True)
-  n_moa_labels = sel_labels.drop(index=n_moa_idx).reset_index(drop=True)
+  n_moa_labels = df_labels.drop(index=n_moa_idx).reset_index(drop=True)
   return n_moa_feature, n_moa_labels
 
 def get_test_train_val(df_feature, df_labels):
